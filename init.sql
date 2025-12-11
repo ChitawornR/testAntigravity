@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 -- Insert default admin user (password: admin123)
--- Hash for 'admin123': 240be518fabd2724ddb6f04eeb9d55a837dc90e98a7e3c00d9b7a84e78ed4b43
+-- Hash for '123456789': 15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225
 INSERT INTO users (name, email, password, role) VALUES 
-('Admin', 'admin@example.com', '240be518fabd2724ddb6f04eeb9d55a837dc90e98a7e3c00d9b7a84e78ed4b43', 'admin')
+('Admin', 'admin@admin.com', '15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225', 'admin')
 ON DUPLICATE KEY UPDATE id=id;
