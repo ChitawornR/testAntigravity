@@ -60,9 +60,13 @@ export async function createSession(payload: SessionPayload): Promise<void> {
   const token = await createToken(payload);
   const cookieStore = await cookies();
 
+  // Use SECURE_COOKIES env var to control secure flag
+  // Set SECURE_COOKIES=true only when using HTTPS
+  const isSecure = process.env.SECURE_COOKIES === "true";
+
   cookieStore.set(SESSION_COOKIE_NAME, token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
+    secure: isSecure,
     sameSite: "lax",
     maxAge: SESSION_EXPIRY,
     path: "/",
