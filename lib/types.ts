@@ -23,6 +23,7 @@ export interface UserPublic {
 // Session payload stored in JWT
 export interface SessionPayload {
   userId: number;
+  name: string;
   email: string;
   role: "admin" | "user";
   exp?: number;
